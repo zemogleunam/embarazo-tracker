@@ -14,6 +14,12 @@
     --muted: #8a6a60;
     --accent: #7a9e7e;
     --light-rose: #f2ddd5;
+    --purple: #9b7eb8;
+    --light-purple: #f0eaf7;
+    --blue: #6a9fd4;
+    --light-blue: #e8f2fb;
+    --gold: #c9a84c;
+    --light-gold: #fdf6e3;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,7 +32,7 @@
     justify-content: center;
     font-family: 'DM Mono', monospace;
     color: var(--deep);
-    padding: 2rem;
+    padding: 2rem 1rem;
     background-image: radial-gradient(ellipse at 20% 20%, #f5e6dc 0%, transparent 60%),
                       radial-gradient(ellipse at 80% 80%, #dde8dd 0%, transparent 60%);
   }
@@ -34,9 +40,9 @@
   .card {
     background: white;
     border-radius: 2px;
-    max-width: 480px;
+    max-width: 500px;
     width: 100%;
-    padding: 3rem 2.5rem;
+    padding: 2.5rem 2rem;
     box-shadow: 8px 8px 0 var(--blush), 16px 16px 0 #e8d5cc30;
     position: relative;
     overflow: hidden;
@@ -45,14 +51,14 @@
   .card::before {
     content: '♡';
     position: absolute;
-    top: -20px;
-    right: -10px;
+    top: -20px; right: -10px;
     font-size: 120px;
     color: var(--light-rose);
     line-height: 1;
     pointer-events: none;
   }
 
+  /* ── Header ── */
   .label {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
@@ -60,15 +66,13 @@
     color: var(--muted);
     margin-bottom: 0.4rem;
   }
-
   .date-display {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--rose);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     font-style: italic;
   }
-
   .week-big {
     font-family: 'Playfair Display', serif;
     font-size: 5rem;
@@ -77,32 +81,38 @@
     line-height: 1;
     letter-spacing: -2px;
   }
-
   .week-unit {
-    font-family: 'DM Mono', monospace;
     font-size: 0.75rem;
     color: var(--muted);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-top: 0.2rem;
   }
-
   .days-line {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--rose);
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
     font-style: italic;
   }
 
+  /* ── Divider ── */
   .divider {
     border: none;
     border-top: 1px solid var(--light-rose);
-    margin: 2rem 0;
+    margin: 1.8rem 0;
   }
 
-  .progress-section { margin-bottom: 1.5rem; }
+  /* ── Section titles ── */
+  .section-title {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
 
+  /* ── Progress ── */
   .progress-label {
     display: flex;
     justify-content: space-between;
@@ -112,14 +122,12 @@
     color: var(--muted);
     margin-bottom: 0.6rem;
   }
-
   .progress-bar {
     height: 6px;
     background: var(--light-rose);
     border-radius: 3px;
     overflow: hidden;
   }
-
   .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--blush), var(--rose));
@@ -127,191 +135,608 @@
     transition: width 1s ease;
   }
 
+  /* ── Trimestres ── */
   .trimester-row {
     display: flex;
     gap: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
   }
-
   .trimester-pill {
     flex: 1;
     text-align: center;
     padding: 0.5rem 0.3rem;
     border-radius: 2px;
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border: 1px solid var(--light-rose);
     color: var(--muted);
   }
+  .trimester-pill.active { background: var(--rose); color: white; border-color: var(--rose); }
+  .trimester-pill.done   { background: var(--light-rose); color: var(--rose); border-color: var(--blush); }
 
-  .trimester-pill.active {
-    background: var(--rose);
-    color: white;
-    border-color: var(--rose);
-  }
-
-  .trimester-pill.done {
-    background: var(--light-rose);
-    color: var(--rose);
-    border-color: var(--blush);
-  }
-
+  /* ── Stats grid ── */
   .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
   }
-
   .stat-box {
-    padding: 1rem;
+    padding: 0.9rem 1rem;
     background: var(--cream);
     border-radius: 2px;
     border-left: 3px solid var(--blush);
   }
-
   .stat-number {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 700;
     color: var(--deep);
   }
-
   .stat-label {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     color: var(--muted);
     margin-top: 0.2rem;
   }
 
+  /* ── FPP ── */
   .fpp-section {
-    margin-top: 1.5rem;
-    padding: 1.2rem 1.5rem;
-    background: linear-gradient(135deg, var(--accent)15, #dde8dd);
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: linear-gradient(135deg, #eaf3eb, #dde8dd);
     border-radius: 2px;
     border: 1px solid #b5ccb8;
   }
-
   .fpp-label {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--accent);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
   }
-
   .fpp-date {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: var(--deep);
     font-weight: 700;
   }
+  .fpp-sub { font-size: 0.62rem; color: var(--muted); margin-top: 0.25rem; }
 
-  .fpp-sub {
-    font-size: 0.65rem;
+  /* ── Tamaño ── */
+  .tamano-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: #fdf0f7;
+    border-radius: 2px;
+    border: 1px solid #e8c4d8;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .tamano-emoji { font-size: 2.6rem; line-height: 1; flex-shrink: 0; }
+  .tamano-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: #b07090; margin-bottom: 0.2rem; }
+  .tamano-nombre { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--deep); }
+  .tamano-peso { font-size: 0.62rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* ── Desarrollo ── */
+  .desarrollo-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--light-blue);
+    border-radius: 2px;
+    border: 1px solid #b8d4ec;
+  }
+  .desarrollo-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue); margin-bottom: 0.4rem; }
+  .desarrollo-item { font-size: 0.7rem; color: var(--deep); line-height: 1.6; margin-bottom: 0.3rem; }
+  .desarrollo-item span { color: var(--blue); font-weight: 400; margin-right: 0.4rem; }
+
+  /* ── Sentidos ── */
+  .sentidos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+    margin-top: 1.2rem;
+  }
+  .sentido-box {
+    padding: 0.6rem 0.3rem;
+    border-radius: 2px;
+    text-align: center;
+    border: 1px solid var(--light-rose);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--muted);
-    margin-top: 0.3rem;
+  }
+  .sentido-box .s-emoji { font-size: 1.2rem; display: block; margin-bottom: 0.2rem; }
+  .sentido-box.activo { background: var(--light-rose); border-color: var(--blush); color: var(--rose); }
+
+  /* ── Mamá ── */
+  .mama-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--light-gold);
+    border-radius: 2px;
+    border: 1px solid #e8d4a0;
+  }
+  .mama-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.5rem; }
+  .mama-row { display: flex; flex-direction: column; gap: 0.4rem; }
+  .mama-item { font-size: 0.68rem; color: var(--deep); line-height: 1.5; }
+  .mama-item b { color: var(--gold); font-weight: 400; }
+
+  /* ── Pruebas médicas ── */
+  .pruebas-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--light-purple);
+    border-radius: 2px;
+    border: 1px solid #d4c0e8;
+  }
+  .pruebas-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--purple); margin-bottom: 0.5rem; }
+  .prueba-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #e8daf4;
+    font-size: 0.65rem;
+  }
+  .prueba-item:last-child { border-bottom: none; }
+  .prueba-nombre { color: var(--deep); }
+  .prueba-semana { color: var(--purple); font-size: 0.6rem; }
+  .prueba-item.pasada .prueba-nombre { color: var(--muted); text-decoration: line-through; }
+  .prueba-item.proxima .prueba-nombre { color: var(--purple); font-weight: 500; }
+  .proxima-badge {
+    font-size: 0.5rem;
+    background: var(--purple);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    margin-left: 0.4rem;
   }
 
+  /* ── Hitos cuenta atrás ── */
+  .hitos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+  }
+  .hito-box {
+    padding: 0.9rem 1rem;
+    border-radius: 2px;
+    border: 1px solid var(--light-rose);
+    background: white;
+  }
+  .hito-dias {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--rose);
+  }
+  .hito-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: 0.2rem; line-height: 1.4; }
+
+  /* ── Latidos ── */
+  .latidos-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: #fff0f0;
+    border-radius: 2px;
+    border: 1px solid #f4c0c0;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .latidos-heart { font-size: 2.2rem; animation: heartbeat 1s ease infinite; }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+  .latidos-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: #d06060; margin-bottom: 0.2rem; }
+  .latidos-numero { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--deep); }
+  .latidos-sub { font-size: 0.62rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* ── Zodíaco ── */
+  .zodiaco-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: #f4f0fa;
+    border-radius: 2px;
+    border: 1px solid #d4c8ee;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .zodiaco-emoji { font-size: 2.4rem; flex-shrink: 0; }
+  .zodiaco-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: #8060b0; margin-bottom: 0.2rem; }
+  .zodiaco-signo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--deep); }
+  .zodiaco-sub { font-size: 0.62rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* ── Curiosidad ── */
+  .curiosidad-section {
+    margin-top: 1.2rem;
+    padding: 1.1rem 1.4rem;
+    background: var(--cream);
+    border-radius: 2px;
+    border-left: 3px solid var(--rose);
+  }
+  .curiosidad-label { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--rose); margin-bottom: 0.4rem; }
+  .curiosidad-texto { font-size: 0.72rem; color: var(--deep); line-height: 1.7; font-style: italic; }
+
+  /* ── Mensaje ── */
   .mensaje {
     margin-top: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--muted);
     font-style: italic;
     text-align: center;
     line-height: 1.6;
+    padding-top: 1rem;
+    border-top: 1px solid var(--light-rose);
   }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-
   .card { animation: fadeIn 0.6s ease forwards; }
 </style>
 </head>
 <body>
 <div class="card">
+
+  <!-- Header -->
   <div class="label">Seguimiento del embarazo</div>
   <div class="date-display" id="fechaHoy"></div>
-
   <div class="week-big" id="semanas">—</div>
   <div class="week-unit">semanas</div>
   <div class="days-line" id="diasExtra"></div>
 
   <hr class="divider">
 
-  <div class="progress-section">
-    <div class="progress-label">
-      <span>Progreso</span>
-      <span id="porcentaje">0%</span>
-    </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill" style="width:0%"></div>
-    </div>
+  <!-- Progreso -->
+  <div class="progress-label">
+    <span>Progreso del embarazo</span>
+    <span id="porcentaje">0%</span>
   </div>
-
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
   <div class="trimester-row">
     <div class="trimester-pill" id="t1">1.er trimestre</div>
     <div class="trimester-pill" id="t2">2.o trimestre</div>
     <div class="trimester-pill" id="t3">3.er trimestre</div>
   </div>
 
+  <!-- Stats -->
   <div class="stats-grid">
     <div class="stat-box">
       <div class="stat-number" id="diasTotal">—</div>
-      <div class="stat-label">Días transcurridos</div>
+      <div class="stat-label">Días de vida</div>
     </div>
     <div class="stat-box">
       <div class="stat-number" id="diasRestantes">—</div>
       <div class="stat-label">Días restantes</div>
     </div>
+    <div class="stat-box">
+      <div class="stat-number" id="caloriasExtra">—</div>
+      <div class="stat-label">Cal. extra/día</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number" id="diasCorazon">—</div>
+      <div class="stat-label">Días latiendo</div>
+    </div>
   </div>
 
+  <!-- FPP -->
   <div class="fpp-section">
     <div class="fpp-label">Fecha probable de parto</div>
     <div class="fpp-date" id="fppDate">—</div>
     <div class="fpp-sub">Semana 40 · Término esperado</div>
   </div>
 
+  <hr class="divider">
+
+  <!-- Tamaño -->
+  <div class="tamano-section">
+    <div class="tamano-emoji" id="tamanoEmoji">🌱</div>
+    <div>
+      <div class="tamano-label">Tamaño aproximado</div>
+      <div class="tamano-nombre" id="tamanoNombre">—</div>
+      <div class="tamano-peso" id="tamanoPeso"></div>
+    </div>
+  </div>
+
+  <!-- Latidos acumulados -->
+  <div class="latidos-section">
+    <div class="latidos-heart">❤️</div>
+    <div>
+      <div class="latidos-label">Latidos acumulados</div>
+      <div class="latidos-numero" id="latidosNum">—</div>
+      <div class="latidos-sub">desde la semana 6</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Desarrollo del bebé -->
+  <div class="desarrollo-section">
+    <div class="desarrollo-label">🍼 Desarrollo esta semana</div>
+    <div id="desarrolloContent"></div>
+  </div>
+
+  <!-- Sentidos activos -->
+  <div class="section-title" style="margin-top:1.4rem;">Sentidos activos</div>
+  <div class="sentidos-grid" id="sentidosGrid"></div>
+
+  <hr class="divider">
+
+  <!-- Para la mamá -->
+  <div class="mama-section">
+    <div class="mama-label">💛 Para la mamá esta semana</div>
+    <div class="mama-row" id="mamaContent"></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Pruebas médicas -->
+  <div class="pruebas-section">
+    <div class="pruebas-label">🩺 Pruebas médicas</div>
+    <div id="pruebasContent"></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Hitos cuenta atrás -->
+  <div class="section-title">Cuenta atrás</div>
+  <div class="hitos-grid" id="hitosGrid"></div>
+
+  <hr class="divider">
+
+  <!-- Zodíaco -->
+  <div class="zodiaco-section">
+    <div class="zodiaco-emoji" id="zodiacoEmoji">✨</div>
+    <div>
+      <div class="zodiaco-label">Signo zodiacal probable</div>
+      <div class="zodiaco-signo" id="zodiacoSigno">—</div>
+      <div class="zodiaco-sub" id="zodiacoSub"></div>
+    </div>
+  </div>
+
+  <!-- Curiosidad -->
+  <div class="curiosidad-section">
+    <div class="curiosidad-label">✨ Curiosidad de la semana</div>
+    <div class="curiosidad-texto" id="curiosidadTexto"></div>
+  </div>
+
   <div class="mensaje" id="mensaje"></div>
 </div>
 
 <script>
-  // Fecha de referencia: 18 mayo 2026 = 8 semanas y 2 días
   const refDate = new Date('2026-05-18');
-  const refDias = 8 * 7 + 2; // 58 días de embarazo
-
+  const refDias = 8 * 7 + 2;
   const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 
   function formatDate(d) {
     return `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
   }
 
+  // ── Datos por semana ──────────────────────────────────────────
+
+  const tamanos = {
+    4:  { emoji:'🌱', nombre:'Semilla de amapola', peso:'< 1 g · ~1 mm' },
+    5:  { emoji:'🫐', nombre:'Arándano',           peso:'< 1 g · ~3 mm' },
+    6:  { emoji:'🍬', nombre:'Lenteja',            peso:'< 1 g · ~6 mm' },
+    7:  { emoji:'🫒', nombre:'Aceituna',           peso:'~1 g · 1 cm' },
+    8:  { emoji:'🍇', nombre:'Uva',               peso:'~1 g · 1,6 cm' },
+    9:  { emoji:'🍒', nombre:'Cereza',            peso:'~2 g · 2,3 cm' },
+    10: { emoji:'🍓', nombre:'Fresa',             peso:'~4 g · 3 cm' },
+    11: { emoji:'🍋', nombre:'Lima',              peso:'~7 g · 4 cm' },
+    12: { emoji:'🥝', nombre:'Kiwi',             peso:'~14 g · 5 cm' },
+    13: { emoji:'🍑', nombre:'Melocotón',        peso:'~23 g · 7 cm' },
+    14: { emoji:'🍋', nombre:'Limón',            peso:'~43 g · 8 cm' },
+    15: { emoji:'🍐', nombre:'Pera',             peso:'~70 g · 10 cm' },
+    16: { emoji:'🥑', nombre:'Aguacate',         peso:'~100 g · 11 cm' },
+    17: { emoji:'🌽', nombre:'Mazorca pequeña',  peso:'~140 g · 13 cm' },
+    18: { emoji:'🫑', nombre:'Pimiento',         peso:'~190 g · 14 cm' },
+    19: { emoji:'🥭', nombre:'Mango',            peso:'~240 g · 15 cm' },
+    20: { emoji:'🍌', nombre:'Plátano',          peso:'~300 g · 16 cm' },
+    21: { emoji:'🥕', nombre:'Zanahoria',        peso:'~360 g · 26 cm' },
+    22: { emoji:'🌽', nombre:'Mazorca de maíz',  peso:'~430 g · 27 cm' },
+    23: { emoji:'🍆', nombre:'Berenjena',        peso:'~500 g · 28 cm' },
+    24: { emoji:'🌽', nombre:'Mazorca grande',   peso:'~600 g · 30 cm' },
+    25: { emoji:'🥦', nombre:'Brócoli',          peso:'~660 g · 34 cm' },
+    26: { emoji:'🥬', nombre:'Lechuga romana',   peso:'~760 g · 35 cm' },
+    27: { emoji:'🥦', nombre:'Coliflor',         peso:'~875 g · 36 cm' },
+    28: { emoji:'🍆', nombre:'Berenjena grande', peso:'~1 kg · 37 cm' },
+    29: { emoji:'🎃', nombre:'Calabacín',        peso:'~1,15 kg · 38 cm' },
+    30: { emoji:'🥒', nombre:'Pepino grande',    peso:'~1,3 kg · 39 cm' },
+    31: { emoji:'🥥', nombre:'Coco',             peso:'~1,5 kg · 41 cm' },
+    32: { emoji:'🎃', nombre:'Calabaza pequeña', peso:'~1,7 kg · 42 cm' },
+    33: { emoji:'🍍', nombre:'Piña',             peso:'~1,9 kg · 43 cm' },
+    34: { emoji:'🍈', nombre:'Melón cantalupo',  peso:'~2,1 kg · 45 cm' },
+    35: { emoji:'🍈', nombre:'Melón mediano',    peso:'~2,4 kg · 46 cm' },
+    36: { emoji:'🥬', nombre:'Col romana',       peso:'~2,6 kg · 47 cm' },
+    37: { emoji:'🌿', nombre:'Acelga grande',    peso:'~2,9 kg · 48 cm' },
+    38: { emoji:'🎃', nombre:'Calabaza mediana', peso:'~3,1 kg · 49 cm' },
+    39: { emoji:'🍉', nombre:'Sandía pequeña',   peso:'~3,3 kg · 50 cm' },
+    40: { emoji:'🍉', nombre:'Sandía',           peso:'~3,5 kg · 51 cm' },
+  };
+
+  const desarrolloData = {
+    4:  ['El embrión se implanta en el útero','Se forman las tres capas germinales','Comienza el tubo neural'],
+    5:  ['El corazón empieza a formarse','Se desarrollan los esbozos de brazos y piernas','Se forma el cerebro primitivo'],
+    6:  ['El corazón late por primera vez','Se forman los ojos y los oídos','Mide unos 6 mm'],
+    7:  ['Se desarrollan los dedos de manos','El cerebro crece muy rápido','Tiene cola, que irá desapareciendo'],
+    8:  ['Los dedos se separan','Se forman párpados y labios','Ya se llama feto oficialmente'],
+    9:  ['Puede doblar los codos','Se forman los genitales (aún no visibles)','El corazón late ~170 veces/min'],
+    10: ['Todos los órganos esenciales están formados','Puede mover los dedos','Las uñas comienzan a crecer'],
+    11: ['Los riñones ya producen orina','Puede bostezar','El iris del ojo toma color'],
+    12: ['Los reflejos aparecen','El intestino entra en la cavidad abdominal','Fin de la organogénesis'],
+    13: ['Puede chuparse el dedo','Los huesos se endurecen','El sexo es visible en ecografía'],
+    14: ['El bebé hace muecas','Los pulmones practican la respiración','Tiene cejas y cabello'],
+    15: ['Puede percibir la luz','Desarrolla la succión','El esqueleto es visible en rayos X'],
+    16: ['Escucha sonidos del exterior','Los ojos se mueven bajo los párpados','El corazón bombea 25 l/día'],
+    17: ['Se forma el vérnix caseosa (capa protectora)','El bebé da patadas','Los huesos siguen endureciéndose'],
+    18: ['Puede oírte hablar claramente','Se forma la mielina en el cerebro','Las huellas dactilares están formadas'],
+    19: ['El bebé desarrolla sentido del olfato','Los riñones filtran bien','Puede reconocer tu voz'],
+    20: ['El bebé traga líquido amniótico','Se forman los dientes de leche','Mitad del embarazo'],
+    21: ['Los movimientos son más coordinados','Puede percibir el sabor del líquido amniótico','Sube de peso rápidamente'],
+    22: ['Los labios están completamente formados','Tiene ciclos de sueño y vigilia','Las cejas son visibles'],
+    23: ['El bebé puede oír música','Los pulmones maduran','El rostro está casi formado'],
+    24: ['Tiene probabilidad de supervivencia fuera del útero','Los pulmones producen surfactante','Los ojos están casi completamente formados'],
+    25: ['Responde a la voz del padre','El cerebro se desarrolla rápidamente','Puede tener hipo'],
+    26: ['Abre y cierra los ojos','Los pulmones practican respirar','Acumula grasa bajo la piel'],
+    27: ['El cerebro controla la respiración','Puede soñar (fase REM)','Distingue sonidos familiares'],
+    28: ['Los pulmones podrían funcionar solos','El bebé reconoce canciones','Gira para ponerse cabeza abajo'],
+    29: ['Los huesos están casi completamente formados','Acumula grasa rápidamente','Puede patear con fuerza'],
+    30: ['El cerebro tiene pliegues (circunvoluciones)','Los pulmones maduran más','La médula produce glóbulos rojos'],
+    31: ['Puede procesar la información sensorial','Todos los sentidos están activos','Ocupa casi todo el espacio'],
+    32: ['Las uñas han llegado a las puntas','Los pulmones casi están listos','Practica la respiración constantemente'],
+    33: ['Los huesos del cráneo aún son flexibles','El bebé coordina la succión','Acumula ~250 g/semana'],
+    34: ['El sistema nervioso central está maduro','Las uñas de los pies han crecido','Reconoce tu voz perfectamente'],
+    35: ['Los riñones están completamente desarrollados','El hígado produce bilis','Casi listo para nacer'],
+    36: ['Baja hacia la pelvis (encajamiento)','Los pulmones están maduros','Pierde el vérnix gradualmente'],
+    37: ['¡A término! Podría nacer en cualquier momento','El cerebro pesa ~400 g','Tiene reflejos de succión completos'],
+    38: ['El lanugo (pelo fino) desaparece','Acumula grasa para regular temperatura','El intestino tiene meconio'],
+    39: ['El cerebro sigue desarrollándose','El peso es el definitivo','Está listo para el mundo'],
+    40: ['¡Completamente desarrollado!','Espera el momento del parto','¡Nos vemos muy pronto!'],
+  };
+
+  const sentidosData = {
+    // semana en que se activa cada sentido
+    tacto: 8, gusto: 14, oido: 18, olfato: 19, vista: 26,
+  };
+
+  const mamaData = {
+    4:  { sintomas:'Náuseas, cansancio extremo, sensibilidad en pechos', nutricion:'Ácido fólico esencial — espinacas, legumbres, cereales', calorias:0 },
+    5:  { sintomas:'Náuseas matutinas (pueden ser todo el día), fatiga', nutricion:'Jengibre para las náuseas, muchos líquidos', calorias:0 },
+    6:  { sintomas:'Sensibilidad al olfato, salivación aumentada', nutricion:'Comidas pequeñas y frecuentes para las náuseas', calorias:0 },
+    7:  { sintomas:'Mareos, estreñimiento, humor cambiante', nutricion:'Hierro: lentejas, carnes rojas, espinacas', calorias:0 },
+    8:  { sintomas:'El útero ha doblado su tamaño. Micción frecuente', nutricion:'Calcio: lácteos, almendras, brócoli', calorias:0 },
+    9:  { sintomas:'Las náuseas suelen ser más intensas esta semana', nutricion:'Vitamina B6 ayuda con las náuseas: plátano, pollo', calorias:0 },
+    10: { sintomas:'Aumento de flujo vaginal (normal)', nutricion:'Omega-3: salmón, nueces, chía', calorias:0 },
+    11: { sintomas:'Las náuseas empiezan a remitir para muchas', nutricion:'Proteínas: huevos, legumbres, carnes magras', calorias:100 },
+    12: { sintomas:'Puede aparecer línea alba en el abdomen', nutricion:'Vitamina D: sol moderado, lácteos, pescado', calorias:150 },
+    13: { sintomas:'Energía recuperada. Puede aparecer colostro', nutricion:'Fibra para el estreñimiento: frutas, verduras, cereales integrales', calorias:150 },
+    14: { sintomas:'El abdomen empieza a notarse', nutricion:'Yodo: pescado, lácteos, sal yodada', calorias:200 },
+    15: { sintomas:'Posibles dolores de espalda baja', nutricion:'Hierro: el bebé lo demanda más', calorias:250 },
+    16: { sintomas:'Pueden aparecer los primeros movimientos (mariposas)', nutricion:'Agua: mínimo 2 litros al día', calorias:300 },
+    17: { sintomas:'El corazón late más rápido de lo normal', nutricion:'Magnesio: plátanos, frutos secos, chocolate negro', calorias:300 },
+    18: { sintomas:'Possible dolor ligamentoso en los costados', nutricion:'Calcio y vitamina K: brócoli, kale, lácteos', calorias:300 },
+    19: { sintomas:'El ombligo puede empezar a sobresalir', nutricion:'Zinc: carne, marisco, semillas de calabaza', calorias:300 },
+    20: { sintomas:'Posible acidez. El útero llega al ombligo', nutricion:'Comidas pequeñas y frecuentes para la acidez', calorias:300 },
+    24: { sintomas:'Posible hinchazón en pies y tobillos', nutricion:'Reduce el sodio, aumenta el potasio: plátanos', calorias:300 },
+    28: { sintomas:'Falta de aliento (el útero presiona el diafragma)', nutricion:'Hierro aún más importante. Evita tés e infusiones con hierro', calorias:400 },
+    32: { sintomas:'Contracciones de Braxton-Hicks (falsas contracciones)', nutricion:'Dátiles: estudios sugieren que facilitan el parto', calorias:400 },
+    36: { sintomas:'El bebé baja — alivio en el diafragma pero más presión en la pelvis', nutricion:'Preparar la maleta. Dátiles y té de frambuesa roja', calorias:400 },
+    38: { sintomas:'Posible pérdida del tapón mucoso', nutricion:'Mantente hidratada. Descansa todo lo que puedas', calorias:400 },
+  };
+
+  const pruebasData = [
+    { nombre: 'Análisis de sangre inicial',       semana: 8,  descripcion: 'Grupo sanguíneo, hemograma, serologías' },
+    { nombre: 'Ecografía del 1.er trimestre',      semana: 12, descripcion: 'Translucencia nucal, longitud cráneo-caudal' },
+    { nombre: 'Cribado bioquímico (PAPP-A, HCG)', semana: 12, descripcion: 'Riesgo de cromosomop.' },
+    { nombre: 'Análisis 2.º trimestre',            semana: 16, descripcion: 'Hemograma, glucemia' },
+    { nombre: 'Ecografía morfológica',             semana: 20, descripcion: 'Anatomía completa, posible sexo' },
+    { nombre: 'Test de O\'Sullivan (glucosa)',      semana: 24, descripcion: 'Detección diabetes gestacional' },
+    { nombre: 'Análisis 3.er trimestre',           semana: 28, descripcion: 'Hemograma, anticuerpos' },
+    { nombre: 'Ecografía 3.er trimestre',          semana: 32, descripcion: 'Crecimiento, posición, bienestar' },
+    { nombre: 'Cultivo estreptococo B (EGB)',      semana: 35, descripcion: 'Exudado vagino-rectal' },
+    { nombre: 'Visita preparto final',             semana: 38, descripcion: 'Control final antes del parto' },
+  ];
+
+  const curiosidades = {
+    4:  'El embrión en esta semana es tan pequeño como la punta de un bolígrafo, pero ya tiene todas las instrucciones genéticas para formar un ser humano completo.',
+    5:  'El corazón del bebé late aproximadamente 110 veces por minuto, casi el doble que el tuyo.',
+    6:  'El cerebro del bebé produce más de 100.000 nuevas células nerviosas cada minuto durante esta etapa.',
+    7:  'El embrión tiene una pequeña cola, un vestigio evolutivo que desaparecerá en las próximas semanas.',
+    8:  'Los dedos del bebé son tan finos como hebras de cabello, pero ya tienen todas las líneas que formarán sus huellas dactilares.',
+    9:  'El corazón del bebé late entre 140 y 170 veces por minuto, ¡el doble que el tuyo!',
+    10: 'El bebé ya puede mover las manos, aunque tú aún no puedes sentirlo.',
+    11: 'El bebé puede bostezar. Si haces una ecografía, podrías verlo.',
+    12: 'El bebé tiene todos sus órganos formados. A partir de ahora solo crecerá y madurará.',
+    13: 'El bebé puede chuparse el dedo. Está practicando para la lactancia.',
+    14: 'El bebé empieza a percibir la luz. Si iluminas tu barriga, puede notar el brillo.',
+    15: 'Los huesos del bebé son tan blandos ahora que en una radiografía apenas serían visibles.',
+    16: 'El corazón del bebé bombea ya unos 25 litros de sangre al día.',
+    17: 'El bebé tiene su propia capa protectora: el vérnix caseosa, una sustancia cremosa blanca que protege su piel.',
+    18: 'Las huellas dactilares del bebé son únicas e irrepetibles, como las tuyas.',
+    19: 'El bebé puede saborear lo que tú comes a través del líquido amniótico. ¡Cuida tu dieta!',
+    20: '¡Mitad del camino! El bebé traga varias cucharadas de líquido amniótico al día.',
+    21: 'El bebé duerme la mayor parte del tiempo, pero cuando está despierto, es muy activo.',
+    22: 'El bebé ya tiene cejas y pestañas, aunque son muy finitas.',
+    23: 'Si el bebé oye música alta, puede reaccionar con movimientos.',
+    24: 'A partir de esta semana, el bebé tendría posibilidades de sobrevivir fuera del útero con cuidados intensivos.',
+    25: 'El bebé puede reconocer la voz del padre y reaccionar a ella.',
+    26: 'El bebé abre y cierra los ojos. Está practicando para cuando llegue al mundo.',
+    27: 'Se cree que los bebés sueñan durante la fase REM del sueño. ¿Con qué soñará?',
+    28: 'El bebé puede reconocer canciones que escucha ahora. ¡Ponle música!',
+    29: 'El bebé ocupa tanto espacio que a veces puedes ver la forma de un codo o un pie a través de tu barriga.',
+    30: 'El cerebro del bebé tiene ya pliegues y circunvoluciones, como el de un adulto.',
+    31: 'El bebé tiene todos los sentidos activos y puede percibir luz, sonido, tacto, sabor y olfato.',
+    32: 'Las uñas del bebé han llegado a las puntas de los dedos. Nacerá con uñas listas para cortarse.',
+    33: 'El bebé acumula unos 250 gramos de peso por semana.',
+    34: 'El sistema nervioso del bebé está casi completamente maduro.',
+    35: 'Los pulmones del bebé están casi listos. Solo necesitan un poco más de tiempo.',
+    36: 'El bebé está bajando hacia la pelvis. Es el encajamiento.',
+    37: '¡A término! El bebé está completamente listo para nacer en cualquier momento.',
+    38: 'El bebé pierde el lanugo, ese fino vello que cubría su cuerpo.',
+    39: 'El bebé pesa aproximadamente lo mismo que una sandía pequeña.',
+    40: '¡El gran día se acerca! El bebé está completamente preparado para conocerte.',
+  };
+
+  const zodiaco = [
+    { signo: 'Capricornio', emoji: '♑', rango: [[12,22],[1,19]]  },
+    { signo: 'Acuario',     emoji: '♒', rango: [[1,20],[2,18]]   },
+    { signo: 'Piscis',      emoji: '♓', rango: [[2,19],[3,20]]   },
+    { signo: 'Aries',       emoji: '♈', rango: [[3,21],[4,19]]   },
+    { signo: 'Tauro',       emoji: '♉', rango: [[4,20],[5,20]]   },
+    { signo: 'Géminis',     emoji: '♊', rango: [[5,21],[6,20]]   },
+    { signo: 'Cáncer',      emoji: '♋', rango: [[6,21],[7,22]]   },
+    { signo: 'Leo',         emoji: '♌', rango: [[7,23],[8,22]]   },
+    { signo: 'Virgo',       emoji: '♍', rango: [[8,23],[9,22]]   },
+    { signo: 'Libra',       emoji: '♎', rango: [[9,23],[10,22]]  },
+    { signo: 'Escorpio',    emoji: '♏', rango: [[10,23],[11,21]] },
+    { signo: 'Sagitario',   emoji: '♐', rango: [[11,22],[12,21]] },
+  ];
+
+  function getZodiaco(fecha) {
+    const m = fecha.getMonth() + 1;
+    const d = fecha.getDate();
+    for (const z of zodiaco) {
+      const [ini, fin] = z.rango;
+      if ((m === ini[0] && d >= ini[1]) || (m === fin[0] && d <= fin[1])) return z;
+    }
+    return zodiaco[0];
+  }
+
+  function getLookup(data, semana) {
+    const keys = Object.keys(data).map(Number).sort((a,b)=>b-a);
+    for (const k of keys) { if (semana >= k) return data[k]; }
+    return data[Object.keys(data).map(Number).sort((a,b)=>a-b)[0]];
+  }
+
+  // ── Render ────────────────────────────────────────────────────
+
   function calcular() {
-    const hoy = new Date();
-    hoy.setHours(0,0,0,0);
-    refDate.setHours(0,0,0,0);
-
-    const diffMs = hoy - refDate;
-    const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const hoy = new Date(); hoy.setHours(0,0,0,0);
+    const ref = new Date(refDate); ref.setHours(0,0,0,0);
+    const diffDias = Math.floor((hoy - ref) / 86400000);
     const totalDias = refDias + diffDias;
-
     const semanas = Math.floor(totalDias / 7);
     const diasExtra = totalDias % 7;
 
-    // Fecha probable de parto: semana 40 = 280 días desde inicio
-    const inicioEmbarazo = new Date(refDate);
+    const inicioEmbarazo = new Date(ref);
     inicioEmbarazo.setDate(inicioEmbarazo.getDate() - refDias);
     const fpp = new Date(inicioEmbarazo);
     fpp.setDate(fpp.getDate() + 280);
-
-    const diasRestantes = Math.max(0, Math.floor((fpp - hoy) / (1000 * 60 * 60 * 24)));
+    const diasRestantes = Math.max(0, Math.floor((fpp - hoy) / 86400000));
     const pct = Math.min(100, Math.round((totalDias / 280) * 100));
 
-    // UI
+    // Header
     document.getElementById('fechaHoy').textContent = formatDate(hoy);
     document.getElementById('semanas').textContent = semanas;
     document.getElementById('diasExtra').textContent = `y ${diasExtra} día${diasExtra !== 1 ? 's' : ''}`;
@@ -321,43 +746,116 @@
     document.getElementById('diasRestantes').textContent = diasRestantes;
     document.getElementById('fppDate').textContent = formatDate(fpp);
 
+    // Calorías extra
+    let cals = semanas < 11 ? 0 : semanas < 28 ? 300 : 400;
+    document.getElementById('caloriasExtra').textContent = cals > 0 ? '+' + cals : '~0';
+
+    // Días latiendo (corazón activo desde sem 6 = día 42)
+    const diasCorazon = Math.max(0, totalDias - 42);
+    document.getElementById('diasCorazon').textContent = diasCorazon > 0 ? diasCorazon : '—';
+
     // Trimestres
-    const t1 = document.getElementById('t1');
-    const t2 = document.getElementById('t2');
-    const t3 = document.getElementById('t3');
-    if (semanas < 13) { t1.className = 'trimester-pill active'; t2.className = 'trimester-pill'; t3.className = 'trimester-pill'; }
-    else if (semanas < 27) { t1.className = 'trimester-pill done'; t2.className = 'trimester-pill active'; t3.className = 'trimester-pill'; }
-    else { t1.className = 'trimester-pill done'; t2.className = 'trimester-pill done'; t3.className = 'trimester-pill active'; }
+    const t1 = document.getElementById('t1'), t2 = document.getElementById('t2'), t3 = document.getElementById('t3');
+    if (semanas < 13)      { t1.className='trimester-pill active'; t2.className='trimester-pill'; t3.className='trimester-pill'; }
+    else if (semanas < 27) { t1.className='trimester-pill done'; t2.className='trimester-pill active'; t3.className='trimester-pill'; }
+    else                   { t1.className='trimester-pill done'; t2.className='trimester-pill done'; t3.className='trimester-pill active'; }
 
-    // Mensaje
+    // Tamaño
+    const tam = getLookup(tamanos, semanas);
+    document.getElementById('tamanoEmoji').textContent = tam.emoji;
+    document.getElementById('tamanoNombre').textContent = tam.nombre;
+    document.getElementById('tamanoPeso').textContent = tam.peso;
+
+    // Latidos acumulados (desde día 42, ~150 bpm media)
+    const latidos = diasCorazon > 0 ? Math.round(diasCorazon * 24 * 60 * 150).toLocaleString('es-ES') : '—';
+    document.getElementById('latidosNum').textContent = latidos;
+
+    // Desarrollo
+    const desData = getLookup(desarrolloData, semanas);
+    document.getElementById('desarrolloContent').innerHTML =
+      desData.map(d => `<div class="desarrollo-item"><span>→</span>${d}</div>`).join('');
+
+    // Sentidos
+    const sentidosEl = document.getElementById('sentidosGrid');
+    const sentidosList = [
+      { key:'tacto', label:'Tacto', emoji:'🤚' },
+      { key:'gusto', label:'Gusto', emoji:'👅' },
+      { key:'oido',  label:'Oído',  emoji:'👂' },
+      { key:'olfato',label:'Olfato',emoji:'👃' },
+      { key:'vista', label:'Vista', emoji:'👁️' },
+    ];
+    sentidosEl.innerHTML = sentidosList.map(s => {
+      const activo = semanas >= sentidosData[s.key];
+      return `<div class="sentido-box ${activo ? 'activo' : ''}">
+        <span class="s-emoji">${s.emoji}</span>${s.label}
+      </div>`;
+    }).join('');
+
+    // Mamá
+    const mama = getLookup(mamaData, semanas);
+    document.getElementById('mamaContent').innerHTML = `
+      <div class="mama-item"><b>Síntomas:</b> ${mama.sintomas}</div>
+      <div class="mama-item"><b>Nutrición:</b> ${mama.nutricion}</div>
+    `;
+
+    // Pruebas médicas (mostrar las 3 más cercanas: pasadas recientes + próximas)
+    const relevantes = pruebasData
+      .map(p => ({ ...p, diff: p.semana - semanas }))
+      .filter(p => p.diff >= -2 && p.diff <= 8)
+      .slice(0, 5);
+
+    if (relevantes.length === 0) {
+      document.getElementById('pruebasContent').innerHTML =
+        '<div style="font-size:0.68rem;color:var(--muted)">Sin pruebas inmediatas previstas.</div>';
+    } else {
+      document.getElementById('pruebasContent').innerHTML = relevantes.map(p => {
+        let cls = p.diff < 0 ? 'pasada' : p.diff === 0 ? 'proxima' : '';
+        let badge = p.diff === 0 ? '<span class="proxima-badge">Esta semana</span>' :
+                    p.diff > 0  ? `<span style="font-size:0.58rem;color:var(--purple)">en ${p.diff} sem.</span>` : '';
+        return `<div class="prueba-item ${cls}">
+          <span class="prueba-nombre">${p.nombre}${badge}</span>
+          <span class="prueba-semana">Sem. ${p.semana}</span>
+        </div>`;
+      }).join('');
+    }
+
+    // Hitos cuenta atrás
+    const hitos = [
+      { label: 'Fin 1.er trimestre', dias: Math.max(0, (91 - totalDias)) },
+      { label: 'Ecografía morfológica', dias: Math.max(0, (140 - totalDias)) },
+      { label: 'Fin 2.o trimestre', dias: Math.max(0, (189 - totalDias)) },
+      { label: 'Fecha de parto', dias: diasRestantes },
+    ];
+    document.getElementById('hitosGrid').innerHTML = hitos.map(h =>
+      `<div class="hito-box">
+        <div class="hito-dias">${h.dias > 0 ? h.dias : '✓'}</div>
+        <div class="hito-label">${h.dias > 0 ? 'días para' : 'Completado —'} ${h.label}</div>
+      </div>`
+    ).join('');
+
+    // Zodíaco
+    const z = getZodiaco(fpp);
+    document.getElementById('zodiacoEmoji').textContent = z.emoji;
+    document.getElementById('zodiacoSigno').textContent = z.signo;
+    document.getElementById('zodiacoSub').textContent = `Basado en la fecha probable de parto: ${formatDate(fpp)}`;
+
+    // Curiosidad
+    const cur = getLookup(curiosidades, semanas);
+    document.getElementById('curiosidadTexto').textContent = cur;
+
+    // Mensaje final
     const mensajes = {
-      1: "El corazón comienza a latir. ¡Todo empieza!",
-      2: "Las primeras semanas son las más importantes. Cuídate.",
-      3: "Ya se forman los órganos principales.",
-      4: "¡Primer mes completado! El embrión mide unos 5mm.",
-      5: "El corazón late unas 160 veces por minuto.",
-      6: "Comienzan a formarse los rasgos faciales.",
-      7: "El bebé mide ya unos 13mm.",
-      8: "Los dedos de manos y pies se van separando.",
-      9: "¡Ya es técnicamente un feto! Mide unos 3cm.",
-      10: "El bebé puede doblar los codos.",
-      11: "Ya tiene todos los órganos esenciales formados.",
-      12: "¡Fin del primer trimestre! El riesgo de aborto disminuye.",
-      13: "Segundo trimestre — la etapa del bienestar.",
-      16: "Posiblemente puedas sentir los primeros movimientos.",
-      20: "¡Mitad del camino! La ecografía morfológica revela el sexo.",
-      24: "El bebé ya puede oír tu voz.",
-      28: "Tercer trimestre — recta final.",
-      32: "El bebé ocupa casi todo el espacio.",
-      36: "Ya está casi listo. ¡Preparad la maleta!",
-      38: "A término — puede nacer en cualquier momento.",
-      40: "¡Fecha probable! El bebé está completamente listo.",
+      1:'El corazón comienza a latir. ¡Todo empieza!',
+      6:'El corazón late por primera vez. Es un momento único.',
+      9:'¡Ya es técnicamente un feto! Todo va bien.',
+      12:'¡Fin del primer trimestre! El riesgo de aborto disminuye significativamente.',
+      13:'Bienvenida al segundo trimestre — la etapa del bienestar.',
+      20:'¡Mitad del camino! Lo estás haciendo genial.',
+      28:'Tercer trimestre — recta final. ¡Ya queda poco!',
+      37:'A término — puede nacer en cualquier momento. ¡Preparad la maleta!',
+      40:'¡Fecha probable! El bebé está completamente listo para conocerte.',
     };
-
-    let msg = '';
-    const keys = Object.keys(mensajes).map(Number).sort((a,b)=>b-a);
-    for (const k of keys) { if (semanas >= k) { msg = mensajes[k]; break; } }
-    document.getElementById('mensaje').textContent = msg;
+    document.getElementById('mensaje').textContent = getLookup(mensajes, semanas);
   }
 
   calcular();
